@@ -76,7 +76,7 @@ public class ConfigView extends JDialog {
 
     private void onHelp() {
         try {
-            Desktop.getDesktop().browse(new URI("http://www.baidu.com"));
+            Desktop.getDesktop().browse(new URI("https://fang010603.github.io/getcode/"));
         } catch (URISyntaxException e1) {
             e1.printStackTrace();
         } catch (IOException e1) {

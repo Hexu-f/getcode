@@ -2,8 +2,8 @@
     <!--<id>com.your.company.unique.plugin.id</id>-->
     <id>org.hexu.getcode</id>
     <name>Get Code</name>
-    <version>1.0</version>
-    <vendor email="fhx35@hotmail.com.com" url="">指点无线</vendor>
+    <version>1.1</version>
+    <vendor email="fhx35@hotmail.com.com" url="https://fang010603.github.io/getcode/">指点无线</vendor>
 
     <description><![CDATA[
       Getcode是一款生成Mybatis数据操作代码的IntelliJ IDEA插件.<br>
