@@ -1,0 +1,6 @@
+{
+  "name": "Getcode",
+  "tagline": "Getcode是一款生成Mybatis数据操作代码的IntelliJ IDEA插件. 由于Maven插件Mybatis generator在IntelliJ IDEA下使用&配置体验不佳,所以在周末开发了IntelliJ IDEA版本的Mybatis生成器. 目前可以生成xmlmapper和dao,语言主要为中文支持,接下来会支持更多功能及语言版本.",
+  "body": "### 使用帮助.\r\n<p>1.选择Code菜单下的GetCode Mybatis Generator\r\n<p>2.根据要求输入相关设置,和Mybatis Generator的配置类似\r\n<p>    设置例子：\r\n<p>    DriverClass:com.mysql.jdbc.Driver\r\n<p>    IP:PORT:192.168.0.1:3306\r\n<p>    数据库名:GetCodeDB\r\n<p>    UserId:root\r\n<p>    Password:123456\r\n<p>    表名:T_Cinema\r\n<p>    实体名:Cinema\r\n<p>    DAO路径:/Users/hexu/ProjectsName/Dao\r\n<p>    实体路径:/Users/hexu/ProjectsName/Entity\r\n<p>    XMLMapper路径:/Users/hexu/ProjectsName/Xml\r\n<p>    DAO包名:com.hexu.projectsname.dao\r\n<p>    实体包名:com.hexu.projectsname.model\r\n<p>3.点击生成 \r\n\r\n### 需要环境\r\n<p>1.IntelliJ IDEA\r\n<p>2.使用Spring,Spring容器中有sqlSessionTemplate\r\n\r\n### 联系作者\r\n<p>如果有任何使用问题,或者建议,请联系我\r\n<p>fhx35@hotmail.com\r\n\r\n### 下个版本\r\n<p>这个版本其实比较粗糙,周末的时间总是很快,你懂得:)\r\n<p>下个版本:\r\n<p>会支持对整个数据库的生成(可选择覆盖或保留原有文件)\r\n<p>会支持更多语言\r\n<p>会修复丑陋的界面,操作&配置更简洁\r\n<p>至于更新速度,有可能是下周,有可能是两个月后,跪求一颗星吼不吼?更新的的动力...你懂得:)",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
