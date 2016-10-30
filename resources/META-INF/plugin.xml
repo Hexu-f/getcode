@@ -1,0 +1,47 @@
+<idea-plugin version="2">
+    <!--<id>com.your.company.unique.plugin.id</id>-->
+    <id>org.hexu.getcode</id>
+    <name>Get Code</name>
+    <version>1.0</version>
+    <vendor email="fhx35@hotmail.com.com" url="">指点无线</vendor>
+
+    <description><![CDATA[
+      Getcode是一款生成Mybatis数据操作代码的IntelliJ IDEA插件.<br>
+      由于Maven插件Mybatis generator在IntelliJ IDEA下使用&配置体验不佳,所以在周末开发了IntelliJ IDEA版本的Mybatis生成器.<br>
+      目前可以生成xmlmapper和dao,语言主要为中文支持,接下来会支持更多功能及语言版本.<br>
+
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="141.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="MybatisGeneratorAction" class="org.hexu.getcode.action.MybatisGeneratorAction"
+                text="GetCode Mybatis Generator">
+            <add-to-group group-id="CodeMenu" anchor="first"/>
+        </action>
+    </actions>
+
+    <application-components>
+        <component>
+            <implementation-class>org.hexu.getcode.GetCodeIdealToolsApplication</implementation-class>
+        </component>
+    </application-components>
+</idea-plugin>

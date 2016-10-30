@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="${params.entityName}Mapper">
+    <resultMap id="BaseResultMap" type="${params.entityPackageName}.${params.entityName}">
+        #foreach($col in $params.columns)
+            #if($col.propertyName == $params.keyProperty)
+                <id column="$col.columnName" property="$col.propertyName" jdbcType="$col.jdbcTyep"/>
+            #else
+                <result column="$col.columnName" property="$col.propertyName" jdbcType="$col.jdbcTyep"/>
+            #end
+        #end
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ${params.columnsString}
+    </sql>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ${params.tableName}
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Map">
+        select
+        <include refid="Base_Column_List"/>
+        from ${params.tableName}
+        where ${params.keyColumn.columnName} = #{${params.keyColumn.propertyName}}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="Map">
+        delete from ${params.tableName}
+        where ${params.keyColumn.columnName} = #{${params.keyColumn.propertyName}}
+    </delete>
+
+    <insert id="insert" parameterType="${params.entityPackageName}.${params.entityName}">
+        insert into ${params.tableName}
+        (${params.columnsString})
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        #foreach($col in $params.columns)
+        #{${col.propertyName}},
+        #end
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="${params.entityPackageName}.${params.entityName}">
+        update ${params.tableName}
+        <set>
+        #foreach($col in $params.columns)
+    <if test="${col.propertyName} != null">
+            ${col.columnName} = #{${col.propertyName}},
+        </if>
+        #end
+        </set>
+        where ${params.keyColumn.columnName} = #{${params.keyColumn.propertyName}}
+    </update>
+
+</mapper>
