@@ -84,13 +84,6 @@ public class ConfigView extends JDialog {
         }
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("ConfigView");
-        frame.setContentPane(new ConfigView().contentPane);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
 
     private void getConfig() throws ClassNotFoundException {
         String drive = txtDrive.getText();
