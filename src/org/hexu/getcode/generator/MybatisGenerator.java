@@ -3,6 +3,9 @@ package org.hexu.getcode.generator;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.runtime.RuntimeConstants;
+import org.apache.velocity.runtime.RuntimeInstance;
+import org.apache.velocity.runtime.log.NullLogChute;
 
 import java.io.*;
 import java.sql.*;
@@ -97,15 +100,22 @@ public class MybatisGenerator {
             if (!f.exists()) {
                 f.createNewFile();
             }
-            Properties props = new Properties();
-            props.put("input.encoding", "utf-8");
-            props.put("output.encoding", "utf-8");
             OutputStreamWriter write = new OutputStreamWriter(new FileOutputStream(f), "UTF-8");
             BufferedWriter writer = new BufferedWriter(write);
             String fileDir = MybatisGenerator.class.getResource("/vm").getPath();
+            fileDir = fileDir.substring(1, fileDir.length());
+
+            RuntimeInstance ri = new RuntimeInstance();
+            if (!ri.isInitialized()) {
+                ri.setProperty(RuntimeConstants.RUNTIME_LOG_LOGSYSTEM, new NullLogChute());
+                ri.init();
+            }
             VelocityEngine ve = new VelocityEngine();
             Properties properties = new Properties();
             properties.setProperty(ve.FILE_RESOURCE_LOADER_PATH, fileDir);
+            properties.setProperty("input.encoding", "utf-8");
+            properties.setProperty("output.encoding", "utf-8");
+            properties.setProperty(VelocityEngine.RUNTIME_LOG_LOGSYSTEM_CLASS, "org.apache.velocity.runtime.log.NullLogChute");
             ve.init(properties);
             VelocityContext context = new VelocityContext();
             context.put("params", params);
@@ -133,15 +143,15 @@ public class MybatisGenerator {
             if (!f.exists()) {
                 f.createNewFile();
             }
-            Properties props = new Properties();
-            props.put("input.encoding", "utf-8");
-            props.put("output.encoding", "utf-8");
             OutputStreamWriter write = new OutputStreamWriter(new FileOutputStream(f), "UTF-8");
             BufferedWriter writer = new BufferedWriter(write);
             String fileDir = MybatisGenerator.class.getResource("/vm").getPath();
             VelocityEngine ve = new VelocityEngine();
             Properties properties = new Properties();
             properties.setProperty(ve.FILE_RESOURCE_LOADER_PATH, fileDir);
+            properties.setProperty("input.encoding", "utf-8");
+            properties.setProperty("output.encoding", "utf-8");
+            properties.setProperty(VelocityEngine.RUNTIME_LOG_LOGSYSTEM_CLASS, "org.apache.velocity.runtime.log.NullLogChute");
             ve.init(properties);
             VelocityContext context = new VelocityContext();
             context.put("params", params);
@@ -169,15 +179,15 @@ public class MybatisGenerator {
             if (!f.exists()) {
                 f.createNewFile();
             }
-            Properties props = new Properties();
-            props.put("input.encoding", "utf-8");
-            props.put("output.encoding", "utf-8");
             OutputStreamWriter write = new OutputStreamWriter(new FileOutputStream(f), "UTF-8");
             BufferedWriter writer = new BufferedWriter(write);
             String fileDir = MybatisGenerator.class.getResource("/vm").getPath();
             VelocityEngine ve = new VelocityEngine();
             Properties properties = new Properties();
             properties.setProperty(ve.FILE_RESOURCE_LOADER_PATH, fileDir);
+            properties.setProperty("input.encoding", "utf-8");
+            properties.setProperty("output.encoding", "utf-8");
+            properties.setProperty(VelocityEngine.RUNTIME_LOG_LOGSYSTEM_CLASS, "org.apache.velocity.runtime.log.NullLogChute");
             ve.init(properties);
             VelocityContext context = new VelocityContext();
             context.put("params", params);
@@ -205,15 +215,15 @@ public class MybatisGenerator {
             if (!f.exists()) {
                 f.createNewFile();
             }
-            Properties props = new Properties();
-            props.put("input.encoding", "utf-8");
-            props.put("output.encoding", "utf-8");
             OutputStreamWriter write = new OutputStreamWriter(new FileOutputStream(f), "UTF-8");
             BufferedWriter writer = new BufferedWriter(write);
             String fileDir = MybatisGenerator.class.getResource("/vm").getPath();
             VelocityEngine ve = new VelocityEngine();
             Properties properties = new Properties();
             properties.setProperty(ve.FILE_RESOURCE_LOADER_PATH, fileDir);
+            properties.setProperty("input.encoding", "utf-8");
+            properties.setProperty("output.encoding", "utf-8");
+            properties.setProperty(VelocityEngine.RUNTIME_LOG_LOGSYSTEM_CLASS, "org.apache.velocity.runtime.log.NullLogChute");
             ve.init(properties);
             VelocityContext context = new VelocityContext();
             context.put("params", params);
